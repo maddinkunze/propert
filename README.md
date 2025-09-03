@@ -274,6 +274,26 @@ Most of the actual logic is in the `src/propert/base.py` and `src/propert/meta.p
 The `src/propert/common.py` file contains some values that are used by both files.
 All remaining files primarily contain type hints and some decision logic for the shorthands they represent.
 
+### 📦 Distribution
+
+To build the package, you can do the following:
+
+```bash
+uv run build
+```
+
+<details>
+<summary>Publishing</summary>
+
+> [!NOTE]
+> This section is primarily relevant for the maintainers of this package (me), as it requires permission to push a package to the `propert` repository on PyPI.
+
+```bash
+uv run publish --token <token>
+```
+
+</details>
+
 ### 🎯 Tests
 
 To run all tests, you can do the following:
