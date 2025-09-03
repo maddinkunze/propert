@@ -9,9 +9,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/martinkunze/propert"
-Documentation = "https://github.com/martinkunze/propert/blob/main/README.md"
-Source = "https://github.com/martinkunze/propert"
+Homepage = "https://github.com/maddinkunze/propert"
+Documentation = "https://github.com/maddinkunze/propert/blob/main/README.md"
+Source = "https://github.com/maddinkunze/propert"
 
 [dependency-groups]
 dev = [
