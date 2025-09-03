@@ -102,7 +102,7 @@ A custom setter on a cached property can return a value that will be saved in th
 Calling `del Test.cached_class_prop` will reset the cached value by default causing the property to be re-evaluated on the next access. A custom deleter for a cached property should return `True` to reset the cache or `False` to leave the cache unchanged. This allows conditional cache invalidation.
 
 > [!WARNING]
-> In order for cached properties to reset when calling `del Test.cached_prop`, the class must be patched with the `PropertMeta` metaclass. See [Metaclass Patching](#metaclass-patching) for more info.
+> In order for cached properties to reset when calling `del Test.cached_prop`, the `Test` class must be patched with the `PropertMeta` metaclass. See [Metaclass Patching](#metaclass-patching) for more info.
 
 ### 🔎 Introspection
 
@@ -312,12 +312,11 @@ To build the package, you can do the following:
 ```bash
 uv run build
 ```
-
+    
 <details>
 <summary>Publishing</summary>
 
-> [!NOTE]
-> This section is primarily relevant for the maintainers of this package (me), as it requires permission to push a package to the `propert` repository on PyPI.
+> 💡 This section is primarily relevant for the maintainers of this package (me), as it requires permission to push a package to the `propert` repository on PyPI.
 
 ```bash
 uv run publish --token <token>
