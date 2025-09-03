@@ -34,7 +34,7 @@ class Test:
 All properties provided by this library support setters and deleters:
 
 ```python
-class Test:
+class Test(PropertBase):
     @classproperty
     def class_prop(cls):
         return ...
@@ -50,6 +50,34 @@ class Test:
 x = Test.class_prop # calls getter
 Test.class_prop = x # calls setter
 del Test.class_prop # calls deleter
+```
+
+#### Metaclass Patching
+
+Note, that you will have to apply the `PropertMeta` metaclass to your class to enable custom setters and deleters. There are multiple ways to achieve this:
+
+```python
+class Test(PropertBase):
+    ...
+
+class Test(metaclass=PropertMeta):
+    ...
+
+class Test(propert(OtherBase)):
+    ...
+
+class Test(enable_propert_modifications(OtherBase)):
+    ...
+```
+
+You can also only enable setters (or just deleters) for a class:
+
+```python
+class Test(propert.enable_setters(OtherBase)):
+    ...
+
+class Test(enable_propert_setters(OtherBase)):
+    ...
 ```
 
 ### 📦 Cached Properties
@@ -71,7 +99,10 @@ class Test:
 
 A custom setter on a cached property can return a value that will be saved in the cache. Alternatively, it can return `propert.CACHE_RESET` to reset the cache or `propert.NO_VALUE` to not change the cache.
 
-Calling `del Tes.cached_class_prop` will reset the cached value by default causing the property to be re-evaluated on the next access. A custom deleter for a cached property should return `True` to reset the cache or `False` to leave the cache unchanged. This allows conditional cache invalidation.
+Calling `del Test.cached_class_prop` will reset the cached value by default causing the property to be re-evaluated on the next access. A custom deleter for a cached property should return `True` to reset the cache or `False` to leave the cache unchanged. This allows conditional cache invalidation.
+
+> [!WARNING]
+> In order for cached properties to reset when calling `del Test.cached_prop`, the class must be patched with the `PropertMeta` metaclass. See [Metaclass Patching](#metaclass-patching) for more info.
 
 ### 🔎 Introspection
 
