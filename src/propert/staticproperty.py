@@ -2,7 +2,7 @@ from typing_extensions import Generic, Self, Literal, Callable, Any, TYPE_CHECKI
 
 from .base import _base_property, _cached_property_mixin
 from .types import (
-    T, R, S, _NoValueT, _NoValue,
+    R, S, _NoValueT, _NoValue,
 
     _staticmethod_getter_default, _staticmethod_setter_default, _staticmethod_deleter_default,
     _staticmethod_getter_cache, _staticmethod_setter_cache, _staticmethod_deleter_cache,
