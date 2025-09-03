@@ -1,0 +1,44 @@
+[project]
+name = "propert"
+version = "0.1.0"
+description = "@propert - Static and class-level properties in python"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "typing-extensions",
+]
+
+[project.urls]
+Homepage = "https://github.com/martinkunze/propert"
+Documentation = "https://github.com/martinkunze/propert/blob/main/README.md"
+Source = "https://github.com/martinkunze/propert"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.10",
+    "pytest",
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+check_untyped_defs = true
+mypy_path = ["src"]  # allow `from propert import ...` with src/ layout
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+disallow_any_generics = true
+no_implicit_optional = true
+implicit_reexport = true
+pretty = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
