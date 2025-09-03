@@ -21,13 +21,13 @@ class Test:
 
 ### 📝 Overview
 
- - 🛠️ properties for [class and static methods](#static--class--and-autoproperties)
- - 🔀 properties getting called on both instance and class level (see [`@autoproperty`](#static--class--and-autoproperties))
- - 🌟 custom [setters and deleters](#setters-and-deleters)
- - 📦 [cached](#cached-properties) and [introspected](#introspection) properties
- - 🤏 versatile and powerful [shorthands](#shorthands)
- - 🤸‍♂️ highly flexible [syntax](#your-code-your-style)
- - ⚔️ decent type-checking support (see [below](#type-checking-and-mypy))
+ - 🛠️ properties for [class and static methods](#-static--class--and-autoproperties)
+ - 🔀 properties getting called on both instance and class level (see [`@autoproperty`](#-static--class--and-autoproperties))
+ - 🌟 custom [setters and deleters](#%EF%B8%8F-setters-and-deleters)
+ - 📦 [cached](#-cached-properties) and [introspected](#-introspection) properties
+ - 🤏 versatile and powerful [shorthands](#-shorthands)
+ - 🤸‍♂️ highly flexible [syntax](#-your-code-your-style)
+ - ⚔️ decent type-checking support (see [below](#-type-checking-and-mypy))
 
 ### 🏷️ Setters and Deleters
 
