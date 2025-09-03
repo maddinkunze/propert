@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from propert import propert, staticproperty, classproperty
-from propert.types import _classmethod_getter_default
-from typing_extensions import TypeVar, Type
+from propert import PropertBase, staticproperty, classproperty
+from typing_extensions import Type
 
 def test_mypy_default_syntax() -> None:
-    class Test:
+    class Test(PropertBase):
         @classproperty
         @classmethod
         def class_prop(cls) -> int:

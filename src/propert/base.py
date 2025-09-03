@@ -105,8 +105,8 @@ class _base_property(Generic[T, R, S]):
         value = self._setter(*self._get_args(instance, owner), value)
         if self._cache and (value is not _NoValue):
             if value is _CacheReset:
-                value = _NoValue
-            self._cached_value = value # type: ignore
+                value = _NoValue # type: ignore[assignment]
+            self._cached_value = value # type: ignore[assignment]
 
     def __set__(self, instance: T, value: S) -> None:
         return self._set(instance, type(instance), value)
