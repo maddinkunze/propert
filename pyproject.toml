@@ -1,6 +1,6 @@
 [project]
 name = "propert"
-version = "0.1.1"
+version = "0.1.2"
 description = "@propert - Static and class-level properties in python"
 readme = "README.md"
 requires-python = ">=3.8"

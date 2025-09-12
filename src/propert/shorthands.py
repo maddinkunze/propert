@@ -1,5 +1,5 @@
 from typing_extensions import Type, Literal, Callable, Any, overload
-from inspect import signature
+from inspect import signature, isclass
 
 from .autoproperty import _autoproperty, cached_autoproperty, introspected_autoproperty, introspected_cached_autoproperty
 from .classproperty import _classproperty, cached_classproperty, introspected_classproperty, introspected_cached_classproperty
@@ -773,6 +773,18 @@ class _propert_shorthand:
         Callable[[_staticmethod_getter_cache_introspect[R, introspected_cached_staticproperty[R, S]]], introspected_cached_staticproperty[R, S]]
     ): ...
 
+    @overload
+    def __call__(self,
+        getter: Type[T],
+        setter: None = None,
+        deleter: None = None,
+        *,
+        cache: Literal[False] = False,
+        cache_default: _NoValueT = _NoValue,
+        introspect: Literal[False] = False,
+        check_metaclass: bool = True,
+    ) -> Type[T]: ...
+
     def __call__(self,
         getter: Any = None,
         setter: Any = None,
@@ -788,6 +800,9 @@ class _propert_shorthand:
                 return self.__call__(getter_dec, setter, deleter, cache=cache, cache_default=cache_default, introspect=introspect, check_metaclass=check_metaclass) # type: ignore
 
             return _decorator
+
+        if isclass(getter):
+            return enable_propert_modifications(getter)
 
         _cls: type|None = None
 
