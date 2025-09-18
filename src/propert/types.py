@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing_extensions import Type, TypeVar, TypeAliasType, ParamSpec, Callable, Concatenate, Any, TYPE_CHECKING
 
-T = TypeVar("T")
+T = TypeVar("T", covariant=True)
 R = TypeVar("R")
 S = TypeVar("S")
 P = TypeVar("P")

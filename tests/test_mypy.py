@@ -43,4 +43,3 @@ def test_mypy_default_syntax() -> None:
     y: int = Test.static_prop
 
     Test.class_prop = 200 # type: ignore[assignment, method-assign]
-    
